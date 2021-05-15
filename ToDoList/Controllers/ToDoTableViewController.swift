@@ -13,8 +13,11 @@ class ToDoTableViewController: UITableViewController {
     var todos = [ToDo]()
     
     @objc func onInsert () {
-        print("ON INSERT")
+        let vc = UpsertTableViewController()
+        let nc = UINavigationController(rootViewController: vc)
+        present(nc, animated: true, completion: nil)
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

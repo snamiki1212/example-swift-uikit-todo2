@@ -12,6 +12,9 @@
 		2489F27426507795000653A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2489F27326507795000653A2 /* Assets.xcassets */; };
 		2489F284265078E2000653A2 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2489F283265078E2000653A2 /* ToDo.swift */; };
 		2489F28726507A50000653A2 /* ToDoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2489F28626507A50000653A2 /* ToDoTableViewController.swift */; };
+		2489F2892650874D000653A2 /* UpsertTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2489F2882650874D000653A2 /* UpsertTableViewController.swift */; };
+		2489F28E26508AF8000653A2 /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2489F28D26508AF8000653A2 /* TitleTableViewCell.swift */; };
+		2489F29026508EB1000653A2 /* DueDateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2489F28F26508EB1000653A2 /* DueDateTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		2489F27826507795000653A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2489F283265078E2000653A2 /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
 		2489F28626507A50000653A2 /* ToDoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoTableViewController.swift; sourceTree = "<group>"; };
+		2489F2882650874D000653A2 /* UpsertTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpsertTableViewController.swift; sourceTree = "<group>"; };
+		2489F28D26508AF8000653A2 /* TitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
+		2489F28F26508EB1000653A2 /* DueDateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DueDateTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,8 +90,19 @@
 			isa = PBXGroup;
 			children = (
 				2489F28626507A50000653A2 /* ToDoTableViewController.swift */,
+				2489F2882650874D000653A2 /* UpsertTableViewController.swift */,
+				2489F28A265088A8000653A2 /* UpsertTableViewCells */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		2489F28A265088A8000653A2 /* UpsertTableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				2489F28D26508AF8000653A2 /* TitleTableViewCell.swift */,
+				2489F28F26508EB1000653A2 /* DueDateTableViewCell.swift */,
+			);
+			path = UpsertTableViewCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,6 +177,9 @@
 				2489F26D26507794000653A2 /* SceneDelegate.swift in Sources */,
 				2489F284265078E2000653A2 /* ToDo.swift in Sources */,
 				2489F28726507A50000653A2 /* ToDoTableViewController.swift in Sources */,
+				2489F28E26508AF8000653A2 /* TitleTableViewCell.swift in Sources */,
+				2489F29026508EB1000653A2 /* DueDateTableViewCell.swift in Sources */,
+				2489F2892650874D000653A2 /* UpsertTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
