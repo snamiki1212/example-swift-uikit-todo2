@@ -17,9 +17,13 @@ class NoteTableViewCell: UITableViewCell {
         field.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
         field.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
         field.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+        
+        contentView.heightAnchor.constraint(equalToConstant: 200).isActive = true
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    
 }

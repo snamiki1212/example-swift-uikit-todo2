@@ -17,9 +17,35 @@ class UpsertTableViewController: UITableViewController {
     var basicInformationCell = TitleTableViewCell()
     var dueDateCell = DueDateTableViewCell()
     var noteCell = NoteTableViewCell()
+    var saveBarButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(onSave))
+    var cancelBarButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(onCancel))
+    
+    func updateSaveButtonState(){
+        // TODO: should delegate
+        let shouldEnableSaveButton = basicInformationCell.field.text?.isEmpty == false
+        saveBarButton.isEnabled = shouldEnableSaveButton
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.rightBarButtonItem = saveBarButton
+        navigationItem.leftBarButtonItem = cancelBarButton
+        updateSaveButtonState()
+        
+        // TODO: should delegate
+        basicInformationCell.field.addTarget(self, action: #selector(onTitleEditingChanged(_:)), for: .editingChanged)
+    }
+    
+    @objc private func onTitleEditingChanged(_ sender: UITextField){
+        updateSaveButtonState()
+    }
+    
+    @objc private func onSave(){
+        print("ON SAVE")
+    }
+    
+    @objc private func onCancel(){
+        print("ON CANCEL")
     }
 
     // MARK: - Table view data source
