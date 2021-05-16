@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TitleTableViewCell: UITableViewCell {
+class TitleTableViewCell: UITableViewCell, UITextFieldDelegate {
     let checkIconLabel: UILabel = {
         let label = UILabel()
         label.text = "✅"
@@ -33,13 +33,16 @@ class TitleTableViewCell: UITableViewCell {
         hStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
         hStack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
         
-        
+        self.field.delegate = self
     }
+    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
-    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return false
+    }
 }
