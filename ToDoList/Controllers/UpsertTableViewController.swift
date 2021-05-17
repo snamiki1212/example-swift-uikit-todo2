@@ -17,9 +17,9 @@ class UpsertTableViewController: UITableViewController {
     var basicInformationCell = TitleTableViewCell()
     var dueDateCell = DueDateTableViewCell()
     var noteCell = NoteTableViewCell()
-    var saveBarButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(onSave))
-    var cancelBarButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(onCancel))
-    
+    var saveBarButton = UIBarButtonItem()
+    var cancelBarButton = UIBarButtonItem()
+
     func updateSaveButtonState(){
         // TODO: should delegate
         let shouldEnableSaveButton = basicInformationCell.field.text?.isEmpty == false
@@ -28,8 +28,15 @@ class UpsertTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // update properties
+        saveBarButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(onSave))
+        cancelBarButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(onCancel))
+        
+        // nav
         navigationItem.rightBarButtonItem = saveBarButton
         navigationItem.leftBarButtonItem = cancelBarButton
+        
+        // update UIs
         updateSaveButtonState()
         
         // TODO: should degelate
@@ -49,10 +56,24 @@ class UpsertTableViewController: UITableViewController {
     
     @objc private func onSave(){
         print("ON SAVE")
+        let todo = ToDo(
+            title: basicInformationCell.field.text!,
+            isComplete: basicInformationCell.checkIcon.isSelected,
+            dueDate: dueDateCell.picker.date,
+            notes: noteCell.field.text ?? ""
+        )
+        
+        print(todo)
+        goBack()
     }
     
     @objc private func onCancel(){
         print("ON CANCEL")
+        goBack()
+    }
+    
+    private func goBack(){
+        self.dismiss(animated: true, completion: nil)
     }
 
     // MARK: - Table view data source

@@ -8,9 +8,11 @@
 import UIKit
 
 class NoteTableViewCell: UITableViewCell {
+    let field = UITextField()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        let field = UITextField()
+        
         contentView.addSubview(field)
         field.translatesAutoresizingMaskIntoConstraints = false
         field.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
