@@ -32,9 +32,16 @@ class UpsertTableViewController: UITableViewController {
         navigationItem.leftBarButtonItem = cancelBarButton
         updateSaveButtonState()
         
+        // TODO: should degelate
+//        updateDueDate(date: dueDateCell.picker)
+        
         // TODO: should delegate
         basicInformationCell.field.addTarget(self, action: #selector(onTitleEditingChanged(_:)), for: .editingChanged)
     }
+    
+//    func updateDueDate(date: UIDatePicker){
+//        print("updateDueDate")
+//    }
     
     @objc private func onTitleEditingChanged(_ sender: UITextField){
         updateSaveButtonState()
