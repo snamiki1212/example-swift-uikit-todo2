@@ -7,13 +7,18 @@
 
 import UIKit
 
+protocol UpsertTableViewControllerDelegate {
+    func insert(_ todo: ToDo)
+}
+
 class ToDoTableViewController: UITableViewController {
 
     private let cellId = "ToDoCellIdentifier"
     var todos = [ToDo]()
     
-    @objc func onInsert () {
+    @objc func openInsertPage () {
         let vc = UpsertTableViewController()
+        vc.delegation = self
         let nc = UINavigationController(rootViewController: vc)
         present(nc, animated: true, completion: nil)
     }
@@ -23,7 +28,7 @@ class ToDoTableViewController: UITableViewController {
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(onInsert))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(openInsertPage))
         
         navigationItem.leftBarButtonItem = editButtonItem
         
@@ -62,4 +67,10 @@ class ToDoTableViewController: UITableViewController {
     }
     
     
+}
+
+extension ToDoTableViewController: UpsertTableViewControllerDelegate {
+    func insert(_ todo: ToDo) {
+        print("ON INSERT", todo)
+    }
 }

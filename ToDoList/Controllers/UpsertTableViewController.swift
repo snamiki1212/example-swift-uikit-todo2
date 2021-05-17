@@ -14,6 +14,8 @@ class UpsertTableViewController: UITableViewController {
         "NOTES",
     ]
     
+    var delegation: UpsertTableViewControllerDelegate?
+    
     var basicInformationCell = TitleTableViewCell()
     var dueDateCell = DueDateTableViewCell()
     var noteCell = NoteTableViewCell()
@@ -64,6 +66,7 @@ class UpsertTableViewController: UITableViewController {
         )
         
         print(todo)
+        delegation?.insert(todo)
         goBack()
     }
     
