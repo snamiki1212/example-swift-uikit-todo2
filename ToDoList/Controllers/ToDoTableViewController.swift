@@ -8,7 +8,7 @@
 import UIKit
 
 protocol UpsertTableViewControllerDelegate {
-    func insert(_ todo: ToDo)
+    func upsert(_ todo: ToDo)
 }
 
 class ToDoTableViewController: UITableViewController {
@@ -70,7 +70,23 @@ class ToDoTableViewController: UITableViewController {
 }
 
 extension ToDoTableViewController: UpsertTableViewControllerDelegate {
-    func insert(_ todo: ToDo) {
+    func upsert(_ todo: ToDo){
+        if let indexPath = tableView.indexPathForSelectedRow {
+            update(todo, indexPath)
+        } else {
+            insert(todo)
+        }
+    }
+    
+    internal func insert(_ todo: ToDo) {
         print("ON INSERT", todo)
+        todos.append(todo)
+        tableView.insertRows(at: [IndexPath(row: todos.count - 1, section: 0)], with: .automatic)
+    }
+    
+    internal func update(_ todo: ToDo, _ indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        todos[indexPath.row] = todo
+        tableView.reloadRows(at: [indexPath], with: .automatic)
     }
 }

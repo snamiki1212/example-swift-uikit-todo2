@@ -66,7 +66,7 @@ class UpsertTableViewController: UITableViewController {
         )
         
         print(todo)
-        delegation?.insert(todo)
+        delegation?.upsert(todo)
         goBack()
     }
     
