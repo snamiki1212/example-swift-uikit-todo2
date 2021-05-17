@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		241C8CD2265236E60090E3C8 /* ToDoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241C8CD1265236E60090E3C8 /* ToDoTableViewCell.swift */; };
 		2489F26B26507794000653A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2489F26A26507794000653A2 /* AppDelegate.swift */; };
 		2489F26D26507794000653A2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2489F26C26507794000653A2 /* SceneDelegate.swift */; };
 		2489F27426507795000653A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2489F27326507795000653A2 /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		241C8CD1265236E60090E3C8 /* ToDoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoTableViewCell.swift; sourceTree = "<group>"; };
 		2489F26726507794000653A2 /* ToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2489F26A26507794000653A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2489F26C26507794000653A2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +45,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		241C8CD0265236CE0090E3C8 /* ToDoTabelViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				241C8CD1265236E60090E3C8 /* ToDoTableViewCell.swift */,
+			);
+			path = ToDoTabelViewCells;
+			sourceTree = "<group>";
+		};
 		2489F25E26507794000653A2 = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				2489F28626507A50000653A2 /* ToDoTableViewController.swift */,
+				241C8CD0265236CE0090E3C8 /* ToDoTabelViewCells */,
 				2489F2882650874D000653A2 /* UpsertTableViewController.swift */,
 				2489F28A265088A8000653A2 /* UpsertTableViewCells */,
 			);
@@ -182,6 +193,7 @@
 				2489F292265090EF000653A2 /* NoteTableViewCell.swift in Sources */,
 				2489F28726507A50000653A2 /* ToDoTableViewController.swift in Sources */,
 				2489F28E26508AF8000653A2 /* TitleTableViewCell.swift in Sources */,
+				241C8CD2265236E60090E3C8 /* ToDoTableViewCell.swift in Sources */,
 				2489F29026508EB1000653A2 /* DueDateTableViewCell.swift in Sources */,
 				2489F2892650874D000653A2 /* UpsertTableViewController.swift in Sources */,
 			);

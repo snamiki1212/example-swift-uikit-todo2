@@ -31,7 +31,7 @@ class ToDoTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
+        tableView.register(ToDoTableViewCell.self, forCellReuseIdentifier: cellId)
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(openInsertPage))
         
@@ -52,10 +52,12 @@ class ToDoTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? ToDoTableViewCell else { fatalError("INVALID CELL") }
+
         
         let todo = todos[indexPath.row]
-        cell.textLabel?.text = todo.title
+        cell.isCompleted = todo.isComplete
+        cell.text.text = todo.title
         
         return cell
     }
