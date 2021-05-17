@@ -76,6 +76,7 @@ class UpsertTableViewController: UITableViewController {
     }
     
     private func goBack(){
+        delegation?.doDismiss()
         self.dismiss(animated: true, completion: nil)
     }
 

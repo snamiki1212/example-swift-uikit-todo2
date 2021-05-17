@@ -9,6 +9,7 @@ import UIKit
 
 protocol UpsertTableViewControllerDelegate {
     func upsert(_ todo: ToDo)
+    func doDismiss()
 }
 
 class ToDoTableViewController: UITableViewController {
@@ -16,11 +17,15 @@ class ToDoTableViewController: UITableViewController {
     private let cellId = "ToDoCellIdentifier"
     var todos = [ToDo]()
     
-    @objc func openInsertPage () {
+    private func createUpsretPage() -> UINavigationController {
         let vc = UpsertTableViewController()
         vc.delegation = self
         let nc = UINavigationController(rootViewController: vc)
-        present(nc, animated: true, completion: nil)
+        return nc
+    }
+    
+    @objc func openInsertPage () {
+        present(createUpsretPage(), animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
@@ -66,7 +71,9 @@ class ToDoTableViewController: UITableViewController {
         }
     }
     
-    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        present(createUpsretPage(), animated: true, completion: nil)
+    }
 }
 
 extension ToDoTableViewController: UpsertTableViewControllerDelegate {
@@ -78,6 +85,12 @@ extension ToDoTableViewController: UpsertTableViewControllerDelegate {
         }
     }
     
+    func doDismiss(){
+        if let indexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+    }
+    
     internal func insert(_ todo: ToDo) {
         print("ON INSERT", todo)
         todos.append(todo)
@@ -85,7 +98,6 @@ extension ToDoTableViewController: UpsertTableViewControllerDelegate {
     }
     
     internal func update(_ todo: ToDo, _ indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
         todos[indexPath.row] = todo
         tableView.reloadRows(at: [indexPath], with: .automatic)
     }
