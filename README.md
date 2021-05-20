@@ -2,6 +2,10 @@
 
 WIP: ToDo App
 
+- BOOK: ‎Develop in Swift Data Collections p250
+
+## Tech Stacks
+
 - Swift 5.3
 - UIKit
 
