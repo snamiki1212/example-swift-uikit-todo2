@@ -15,7 +15,11 @@ protocol UpsertTableViewControllerDelegate {
 class ToDoTableViewController: UITableViewController {
 
     private let cellId = "ToDoCellIdentifier"
-    var todos = [ToDo]()
+    var todos = [ToDo]() {
+        didSet {
+            ToDo.saveToDos(todos)
+        }
+    }
     
     private func createUpsretPage() -> UINavigationController {
         let vc = UpsertTableViewController()
